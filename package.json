@@ -1,0 +1,21 @@
+{
+  "name": "bill",
+  "version": "1.0.0",
+  "description": "billing system for cafe o2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "'"
+  ],
+  "author": "sumit arya",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.13.0"
+  }
+}

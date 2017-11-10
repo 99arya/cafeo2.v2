@@ -1,0 +1,47 @@
+<html>
+<header>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</header>
+<body>
+
+
+<div class = "container"> <ul class="list-group">
+  <li class="list-group-item active">Order Number : <b><%= bill.ordernumber %> </b></li>
+  <li class="list-group-item">Table Number : <b><%= bill.tablenumber %></b></li>
+  <li class="list-group-item">Waiter Name : <b><%= bill.waitername %></b></li>
+ 
+</ul>
+<br><br>
+ </div>
+             <% bill.meals.forEach(function(meal){ %>
+            
+            <div class = "container"> <ul class="list-group">
+            <li class="list-group-item"><%= meal.mealname %> -------- Rs. <%= meal.mealprice %></li>
+            
+                       </ul>             
+             <% }); %>           
+    
+    
+    <div class= "container"> 
+    <a href = "/bills/<%= bill._id %>/meals/new">Add a new Meal</a>
+    </div>
+    
+
+    
+    
+    
+    
+    </body>
+
+<style>
+    body{
+        padding-top: 5%;
+    }
+</style>
+    
+
+</html>

@@ -1,0 +1,75 @@
+<html>
+<header>
+    <title>Meals</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</header>
+<body>
+    <h1>Meals</h1>
+    <a href="/meals/new">Add a new Meal</a>
+    
+  
+     <div class='container fluid'>
+    <div class="row text-center" style = "display:flex; flex-wrap:wrap;">
+            <% meals.forEach(function(meal){ %>
+            <div class="card meal-card" style="width: 15rem;">
+                    
+                        <h4 class="add" data-price="<%= meal._id  %>"><%= meal._id %></h4>
+                      <!--<img class="card-img-top" src="<%=meal.image%>" alt="Card image cap" >-->
+                    <div class="card-block">
+                        
+                        <h6 class="card-title"   data-name="<%= meal.name  %>"> <%= meal.name %> </h6>
+                        
+                        <p class="card-text"><%= meal.category  %></p>
+                        <p><%=  meal.comment %></p>
+                        
+                
+                        <a href="#" data-pric="<%= meal.price  %>"  class="btn btn-primary">Rs. <%= meal.price  %></a>
+                        
+                      
+                    </div>
+            </div>
+        <% }); %>
+    </div>
+   </div>
+   
+    <style>
+        .meal-card{
+            padding:1.5%;
+            
+        }
+    </style>
+    
+
+<script> 
+
+var Bill = []
+
+
+                            
+    $('.add').on('click', function() {
+        
+        console.log($(this).data('price'))
+        var oid = $(this).data('price');
+        alert(oid + "     has been added to the bill")
+        // alert( $('div[data-name="name"]') + "worth" + $(this).data('price') + "added to bill");
+        
+            Bill.push(oid)
+            console.log(Bill)
+            
+    });
+    
+ 
+
+</script>
+
+<p></p>
+  
+<a href="/">Home</a>
+</body>
+
+
+</html>
