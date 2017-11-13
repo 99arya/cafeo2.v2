@@ -18,8 +18,56 @@
 
  <!--========================================================================================-->
 
-<br><br><form action="/bills/<%= bill._id%>/meals" method="POST">
-             <h2 style="text-align: center; " >Add a New Meal to the order number <%= bill.ordernumber %></h2><br>
+
+
+<br><br>
+ </div>
+ 
+ <!--=====================================================================================-->
+ <!--BOOTSTRAP COLUMNS-->
+ <!--=====================================================================================-->
+ 
+ <div class="container">
+     <div class="row">
+   
+   
+     
+     <div class="col-2">
+         <h3 class="text-center">KOT</h3>
+         <p class="text-center">Bill Number : <%= bill.ordernumber %></p>
+         <hr>
+               <table class="table table-sm table-bordered ">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Qty.</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+     <% bill.meals.forEach(function(meal){ %> 
+    <tr>
+      
+      <td><%= meal.mealname %></td>
+      <th scope="row">1</th>
+      
+      
+    </tr>
+    <% }); %>  
+  </tbody>
+</table>
+    </div>
+    
+    
+    
+    <div class="col-6">
+      <!--========================================================================================-->
+<!--SHOW MEALS-->
+<!--========================================================================================-->
+<form action="/bills/<%= bill._id%>/meals" method="POST">
+             <h2 style="text-align: center; " >Add a New Meal to : </h2>
+             <h2 style="text-align: center; " >Order Number <%= bill.ordernumber %></h2><br>
 
             <div class="form-group">
                 <input class="form-control" type="text" name="meal[mealname]" placeholder="Name of The Meal">
@@ -33,54 +81,98 @@
             <button class="btn btn-lg btn-primary btn-block" >Submit</button>
             </div> 
         </form>
- </div>
- 
- 
- <!--========================================================================================-->
- <!--SHOW ITEMS IN BILL-->
- <!--========================================================================================-->
- 
-            <div class = "container"> <ul class="list-group">
-                             <% bill.meals.forEach(function(meal){ %>
-
-            <li class="list-group-item"><%= meal.mealname %> -------- Rs. <%= meal.mealprice %></li>
-            
-                       </ul>             
-             <% }); %>           
-    
-<!--========================================================================================-->
-<!--SHOW MEALS-->
-<!--========================================================================================-->
-
- <div class="row text-center" style = "display:flex; flex-wrap:wrap;">
+ <div class="text-center" style = "display:flex; flex-wrap:wrap;">
             <% meals.forEach(function(meal){ %>
             <div class="card meal-card" style="width: 15rem;">
                     
-                        <h4 class="add" data-price="<%= meal._id  %>"><%= meal._id %></h4>
+                        <!--<h4 class="add" data-price="<%= meal._id  %>"><%= meal._id %></h4>-->
                       <!--<img class="card-img-top" src="<%=meal.image%>" alt="Card image cap" >-->
                     <div class="card-block">
                         
-                        <h6 class="card-title"   data-name="<%= meal.name  %>"> <%= meal.name %> </h6>
+                        <h6 class="card-title"   data-name="<%= meal.mealname  %>"> <%= meal.mealname %> </h6>
                         
-                        <p class="card-text"><%= meal.category  %></p>
-                        <p><%=  meal.comment %></p>
+                        <!--<p class="card-text"><%= meal.category  %></p>-->
+                        <!--<p><%=  meal.comment %></p>-->
                         
                 
-                        <a href="#" data-pric="<%= meal.price  %>"  class="btn btn-primary">Rs. <%= meal.price  %></a>
+                        <a href="#" data-pric="<%= meal.mealprice  %>"  class="btn btn-primary">Rs. <%= meal.mealprice  %></a>
                         
                       
                     </div>
             </div>
         <% }); %>
     </div>
+    </div>
+    
+    
+    <div class="col-4">
+ <!--========================================================================================-->
+ <!--SHOW ITEMS IN BILL-->
+ <!--========================================================================================-->
+         <h1 class = "text-center">CAFE - O2</h1>
+         <p class = "text-center" >Sector - 31, Gurgaon</p>
+         <hr>
+         <p class="text-left" style="display:inline-block">Order No. : <%= bill.ordernumber %>    </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         <p class="text-center" style="display:inline-block">              </p>
+         
+         <p class="text-right" style="display:inline-block">Table No. : <%= bill.tablenumber %></p>
+         
+         
+         
+         <table class="table table-sm table-bordered ">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Qty.</th>
+      
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% bill.meals.forEach(function(meal){ %> 
+    <tr>
+      
+      <td><%= meal.mealname %></td>
+      <th scope="row">1</th>
+      
+      <td><%= meal.mealprice %></td>
+    </tr>
+    <% }); %>  
+  </tbody>
+</table>
+                   
+    
+    
+    
+  </div>
+
+ 
+ 
+ 
+
+
 <!--========================================================================================-->
     
-    <div class="newforms" >
-        <div class="form-group">
-    <a href="/">Go Back</a>
-    </div>
+    
+    
+    
 
-    </div>
+    
 
     
     
@@ -91,6 +183,9 @@
 <style>
     body{
         padding-top: 5%;
+    }
+    .card{
+        padding:2%;
     }
 </style>
     
