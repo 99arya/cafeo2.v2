@@ -10,18 +10,14 @@
  <!--========================================================================================-->
 
 
-<div class = "container"> <ul class="list-group">
-  <li class="list-group-item active">Order Number : <b><%= bill.ordernumber %> </b></li>
-  <li class="list-group-item">Table Number : <b><%= bill.tablenumber %></b></li>
-  <li class="list-group-item">Waiter Name : <b><%= bill.waitername %></b></li>
-</ul>
+ 
 
  <!--========================================================================================-->
 
 
 
-<br><br>
- </div>
+
+ 
  
  <!--=====================================================================================-->
  <!--BOOTSTRAP COLUMNS-->
@@ -32,7 +28,7 @@
    
    
      
-     <div class="col-2">
+     <div id = "kotdiv" class="col-2">
          <h3 class="text-center">KOT</h3>
          <p class="text-center">Bill Number : <%= bill.ordernumber %></p>
          <hr>
@@ -66,9 +62,12 @@
 <!--SHOW MEALS-->
 <!--========================================================================================-->
 <form action="/bills/<%= bill._id%>/meals" method="POST">
-             <h2 style="text-align: center; " >Add a New Meal to : </h2>
-             <h2 style="text-align: center; " >Order Number <%= bill.ordernumber %></h2><br>
-
+             
+<ul class="list-group">
+  <li class="list-group-item active">Order Number : <b><%= bill.ordernumber %> </b></li>
+  <li class="list-group-item">Table Number : <b><%= bill.tablenumber %></b></li>
+  <li class="list-group-item">Waiter Name : <b><%= bill.waitername %></b></li>
+</ul><br><h4 style="text-align: center; " >Add a New Meal to Order Number <%= bill.ordernumber %></h4><br>
             <div class="form-group">
                 <input class="form-control" type="text" name="meal[mealname]" placeholder="Name of The Meal">
             </div>
@@ -105,32 +104,15 @@
     </div>
     
     
-    <div class="col-4">
+    <div id ="billdiv" class="col-4">
  <!--========================================================================================-->
  <!--SHOW ITEMS IN BILL-->
  <!--========================================================================================-->
          <h1 class = "text-center">CAFE - O2</h1>
          <p class = "text-center" >Sector - 31, Gurgaon</p>
          <hr>
-         <p class="text-left" style="display:inline-block">Order No. : <%= bill.ordernumber %>    </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         <p class="text-center" style="display:inline-block">              </p>
-         
-         <p class="text-right" style="display:inline-block">Table No. : <%= bill.tablenumber %></p>
-         
+         <p class="text-center">Order No. : <%= bill.ordernumber %>    </p>
+    
          
          
          <table class="table table-sm table-bordered ">
@@ -155,8 +137,8 @@
     <% }); %>  
   </tbody>
 </table>
-                   
-    
+        <p class = "text-right">Total : 475 </p>            
+    <hr>
     
     
   </div>
