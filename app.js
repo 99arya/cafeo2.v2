@@ -142,9 +142,7 @@ var Bill = mongoose.model("Bill", billSchema);
                         })
         });
         
-         // ==================================TRIAL===============
-
-// ==============================TRIAL ENDS=================
+   
 // =========================================================================================================================                                    
         app.post("/meals", function(req, res){
         
@@ -189,7 +187,7 @@ var Bill = mongoose.model("Bill", billSchema);
                     if(err){
                         console.log(err)
                     } console.log(bill);
-                    res.redirect("/bills")
+                    res.redirect('/bills/' + bill._id)
                 })
                  
                 
@@ -208,7 +206,7 @@ var Bill = mongoose.model("Bill", billSchema);
         // ======================================
         
       app.get("/bills", function(req, res) {
-          var billn = req.body._id;
+          var bill = req.body._id;
        
           
           Bill.find({}, function(err, allBills){
@@ -241,18 +239,28 @@ var Bill = mongoose.model("Bill", billSchema);
     //     req.params.id
 
     // });
- 
-   // SHOW - shows more info about one campground
+//  ======================================================================================
+// SHOW PAGE FOR SPECIFIC BILL ID, DISPLAY MEALS IS THAT BILL, DISPLAY ALL MEALS
+//  ======================================================================================
+   
 
     app.get("/bills/:id", function(req, res) {
         
-        // find campground with provided id
+        
         Bill.findById(req.params.id).populate("meals bills").exec(function(err, foundBill){
             if(err){
                 console.log(err)
             } else {
-                      res.render("show",{bill: foundBill});
-               
+                
+                    Meal.find({}, function(err, allMeals){
+                            if(err){
+                                console.log(err);
+                            } else {
+                                res.render("show",{bill: foundBill, meals:allMeals}); 
+                          
+                            }
+                        })
+
             }
         });
         req.params.id
@@ -267,9 +275,15 @@ var Bill = mongoose.model("Bill", billSchema);
                         
                 //             }
                 //         })
+
+                
+                
+                
+                
  // =========================================================================================================================                                    
 // new meal route
 // =========================================================================================================================                                    
+
 
 app.get("/bills/:id/meals/new", function(req, res) {
     
@@ -281,6 +295,34 @@ app.get("/bills/:id/meals/new", function(req, res) {
     })
     
 })
+
+                
+// =========================================================================================
+// add meal to specific bill
+// =========================================================================================                
+                
+app.post("/bills/:id/meals", function(req, res) {
+    Bill.findById(req.params.id, function(err, bill) {
+        if(err){
+            console.log(err)
+        } 
+        
+        
+        Meal.create(req.body.meal, function(err, meal) {
+            if(err){
+                console.log(err)
+            }bill.meals.push(meal)
+           
+            bill.save()
+             console.log(bill)
+            res.redirect('/bills/' + bill._id);
+        })
+    })
+})
+ 
+  // =========================================================================================================================                                    
+// create meal and push to specific bill
+// =========================================================================================================================                                    
 
 
 app.post("/bills/:id/meals", function(req, res) {
