@@ -73,7 +73,7 @@
         </form>
  <div class="text-center" style = "display:flex; flex-wrap:wrap;">
             <% meals.forEach(function(meal){ %>
-            <div class="card meal-card" style="width: 15rem;">
+            <div  data-id-value = "<%= meal  %>" class="card meal-card" style="width: 15rem;">
                     
                         <!--<h4 class="add" data-price="<%= meal._id  %>"><%= meal._id %></h4>-->
                       <!--<img class="card-img-top" src="<%=meal.image%>" alt="Card image cap" >-->
@@ -142,7 +142,26 @@
 <!--========================================================================================-->
     
     
+    <script>
+    var kot = []
+ 
+ 
+
+$(".card").on("click", function(){
+ var mealid=$(this).data("id-value");
+ console.log(mealid)
+ kot.push(mealid)
+ alert(kot)
+});
+
     
+    
+    
+  
+    
+</script>
+    
+
     
 
     
