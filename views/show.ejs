@@ -23,7 +23,7 @@
          <h3 class="text-center">KOT</h3>
          <p class="text-center">Bill Number : <%= bill.ordernumber %></p>
          <hr>
-               <table class="table table-sm table-bordered ">
+               <table id="kottable" class="table table-sm table-bordered ">
   <thead>
     <tr>
       
@@ -71,9 +71,12 @@
             <button class="btn btn-lg btn-primary btn-block" >Submit</button>
             </div> 
         </form>
+        
+        
+        
  <div class="text-center" style = "display:flex; flex-wrap:wrap;">
             <% meals.forEach(function(meal){ %>
-            <div  data-id-value = "<%= meal  %>" class="card meal-card" style="width: 15rem;">
+            <div  data-id-value = "<%= meal  %>"  data-mealname-value = "<%= meal.mealname  %>"  data-mealprice-value = "<%= meal.mealprice  %>" class="card meal-card" style="width: 15rem;">
                     
                         <!--<h4 class="add" data-price="<%= meal._id  %>"><%= meal._id %></h4>-->
                       <!--<img class="card-img-top" src="<%=meal.image%>" alt="Card image cap" >-->
@@ -106,7 +109,7 @@
     
          
          
-         <table class="table table-sm table-bordered ">
+         <table id="billtable" class="table table-sm table-bordered ">
   <thead>
     <tr>
       
@@ -126,6 +129,7 @@
       <td><%= meal.mealprice %></td>
     </tr>
     <% }); %>  
+    
   </tbody>
 </table>
         <p class = "text-right">Total : 475 </p>            
@@ -149,9 +153,19 @@
 
 $(".card").on("click", function(){
  var mealid=$(this).data("id-value");
+ var mealname=$(this).data("mealname-value");
+ var mealprice=$(this).data("mealprice-value");
+ 
  console.log(mealid)
- kot.push(mealid)
- alert(kot)
+$('#billtable').append('<tr><td>' + mealname + '</td><th scope="row">1</th><td>' + mealprice + '</td></tr>');
+$('#kottable').append('<tr><td>' + mealname + '</td><th scope="row">1</th></tr>');
+//  alert(kot)
+ 
+//  $('#myTable').append('<tr><td>my data</td><td>more data</td></tr>');
+
+
+ 
+ 
 });
 
     
