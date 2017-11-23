@@ -13,17 +13,17 @@
             <% meals.forEach(function(meal){ %>
             <div class="card meal-card" style="width: 15rem;">
                     
-                        <h4 class="add" data-price="<%= meal._id  %>"><%= meal._id %></h4>
+                        <h4 class="add" data-price="<%= meal._id  %>"><%= meal.mealname %></h4>
                       <!--<img class="card-img-top" src="<%=meal.image%>" alt="Card image cap" >-->
                     <div class="card-block">
                         
-                        <h6 class="card-title"   data-name="<%= meal.name  %>"> <%= meal.name %> </h6>
+                        <!--<h6 class="card-title"   data-name="<%= meal.name  %>"> <%= meal.name %> </h6>-->
                         
-                        <p class="card-text"><%= meal.category  %></p>
-                        <p><%=  meal.comment %></p>
+                        <!--<p class="card-text"><%= meal.category  %></p>-->
+                        <!--<p><%=  meal.comment %></p>-->
                         
                 
-                        <a href="#" data-pric="<%= meal.price  %>"  class="btn btn-primary">Rs. <%= meal.price  %></a>
+                        <a href="#" data-pric="<%= meal.price  %>"  class="btn btn-primary">Rs. <%= meal.mealprice  %></a>
                         
                       
                     </div>

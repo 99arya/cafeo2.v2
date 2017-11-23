@@ -85,3 +85,12 @@ body{
     width:120px;
     height:120px;
 }
+
+.card:hover {
+    background-color: #7bfc7f;
+   
+    -webkit-transition:transform background-color 300ms linear;
+    -ms-transition:transform background-color 300ms linear;
+    transition:transform background-color 300ms linear; 
+}
+
