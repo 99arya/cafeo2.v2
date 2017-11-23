@@ -135,46 +135,17 @@
         <p class = "text-right">Total : 475 </p>            
     <hr>
     
-    
+     <button id="printbill">Print Bill</button>
   </div>
-
+  
  </div>
  
- 
+
+
 
 
 <!--========================================================================================-->
     
-    
-    <script>
-    var kot = []
- 
- 
-
-$(".card").on("click", function(){
- var mealid=$(this).data("id-value");
- var mealname=$(this).data("mealname-value");
- var mealprice=$(this).data("mealprice-value");
- 
- console.log(mealid)
-$('#billtable').append('<tr><td>' + mealname + '</td><th scope="row">1</th><td>' + mealprice + '</td></tr>');
-$('#kottable').append('<tr><td>' + mealname + '</td><th scope="row">1</th></tr>');
-//  alert(kot)
- 
-//  $('#myTable').append('<tr><td>my data</td><td>more data</td></tr>');
-
-
- 
- 
-});
-
-    
-    
-    
-  
-    
-</script>
-    
 
     
 
@@ -183,16 +154,7 @@ $('#kottable').append('<tr><td>' + mealname + '</td><th scope="row">1</th></tr>'
     
     
     
-    
 
 
-<style>
-    #content{
-        padding-top:5%;
-    }
-    .card{
-        padding:2%;
-    }
-</style>
-    
+<script type="text/javascript" src="../js/main.js"></script>
 <% include ./partials/footer %>

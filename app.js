@@ -4,14 +4,23 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var $ = require("jquery")
 var ObjectId = require('mongodb').ObjectId;
+var  path = require('path');
+var port = process.env.PORT || 3000;
 
+var posRoutes=require("./routes/posRoutes")
+// var billRoutes=require("./routes/billRoutes")
+app.use('/', posRoutes);
+// app.use('/bill', billRoutes)
 
 
 
     // mongoose.connect("mongodb://localhost/cafe_o2")
     mongoose.connect("mongodb://sumitarya:behaPPYhaha99!@ds255715.mlab.com:55715/o2db")
     mongoose.Promise = require('bluebird');
-    app.use(express.static(__dirname + "/public"));
+    app.use(express.static(path.join(__dirname, 'public')));
+    // app.use("/public", express.static(__dirname + "/public"));
+    app.use(express.static(__dirname + "/views"));
+    app.use(bodyParser.json());
 
     app.use(bodyParser.urlencoded({extended:true}));
     app.set("view engine","ejs");
@@ -30,7 +39,7 @@ var Meal = mongoose.model("Meal", mealSchema);
 
   
     
-    var Meal = mongoose.model("Meal", mealSchema);
+   
     
 var billSchema = new mongoose.Schema({
     ordernumber:String,
@@ -125,9 +134,7 @@ var Bill = mongoose.model("Bill", billSchema);
                         //             }
                         //             ]
 // =========================================================================================================================                                    
-        app.get("/",function(req, res){
-            res.render("landing");
-         });
+        
 // =========================================================================================================================                                    
         app.get("/meals", function(req, res){
             
@@ -345,6 +352,6 @@ app.post("/bills/:id/meals", function(req, res) {
  
  
  // =========================================================================================================================                                    
- app.listen(process.env.PORT, process.env.IP, function(){
-        console.log("Server started");
+ app.listen(port, process.env.IP, function(){
+        console.log("Server started! App is running on PORT : " + process.env.PORT);
     });
