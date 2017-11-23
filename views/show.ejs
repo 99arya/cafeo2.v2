@@ -126,13 +126,13 @@
       <td><%= meal.mealname %></td>
       <th scope="row">1</th>
       
-      <td><%= meal.mealprice %></td>
+      <td class="money"><%= meal.mealprice %></td>
     </tr>
     <% }); %>  
     
   </tbody>
 </table>
-        <p class = "text-right">Total : 475 </p>            
+        <p style="display:inline ">Total:</p><span>   </span><p style="display:inline" id="total_forces"></p>            
     <hr>
     
      <button id="printbill">Print Bill</button>

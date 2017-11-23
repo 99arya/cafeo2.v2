@@ -16,7 +16,18 @@ $('#kottable').append('<tr><td>' + mealname + '</td><th scope="row">1</th></tr>'
  
 //  $('#myTable').append('<tr><td>my data</td><td>more data</td></tr>');
 
-
+var result = [];
+  $('table tr').each(function(){
+  	$('td', this).each(function(index, val){
+    	if(!result[index]) result[index] = 0;
+      result[index] += parseInt($(val).text());
+    });
+  });
+  
+  $('table').append('<tr></tr>');
+  $(result).each(function(){
+  	$('#total_forces').html(this)
+  });
  
  
 });
@@ -62,3 +73,18 @@ $('#kottable').append('<tr><td>' + mealname + '</td><th scope="row">1</th></tr>'
                 }
             });
 });
+
+// $(document).ready(function(){
+// var result = [];
+//   $('table tr').each(function(){
+//   	$('td', this).each(function(index, val){
+//     	if(!result[index]) result[index] = 0;
+//       result[index] += parseInt($(val).text());
+//     });
+//   });
+  
+//   $('table').append('<tr></tr>');
+//   $(result).each(function(){
+//   	$('table tr').last().append('<td>'+this+'</td>')
+//   });
+// });

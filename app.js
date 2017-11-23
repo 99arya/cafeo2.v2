@@ -42,9 +42,9 @@ var Meal = mongoose.model("Meal", mealSchema);
    
     
 var billSchema = new mongoose.Schema({
-    ordernumber:String,
-    tablenumber: String,
-    waitername: String,
+    ordernumber:{ type: Number, required: true },
+    tablenumber: { type: String, required: true },
+    waitername: { type: String, required: true },
     meals: [
         {type: mongoose.Schema.Types.ObjectId,
             ref: "Meal"
