@@ -2,7 +2,6 @@
 
 
 
-
  <!--========================================================================================-->
 
 
@@ -98,14 +97,30 @@
     </div>
     
     
-    <div id ="billdiv" class="col-4">
  <!--========================================================================================-->
  <!--SHOW ITEMS IN BILL-->
  <!--========================================================================================-->
-         <h1 class = "text-center">CAFE - O2</h1>
-         <p class = "text-center" >Sector - 31, Gurgaon</p>
-         <hr>
-         <p class="text-center">Order No. : <%= bill.ordernumber %>    </p>
+         <div class="col-4">
+    <div id ="billdiv" >
+        <hr>
+         <p class = "text-center billp" >CAFE - O2</p>
+         <p class = "text-center billp" >2220/11, HUDA PARK ROAD</p>
+        
+         <p class = "text-center billp" >SECTOR-31, GURGAON</p>
+         <p class = "text-center billp" >HARYANA 122001</p>
+          <p class = "text-center billp" >PH. 9891471187</p>
+          <hr id="billtablemargin">
+          
+    <li class="il">Waiter Name : <%= bill.waitername %><span class="right"> Order No. : <%= bill.ordernumber %></span></li>
+   
+   <p class="il" style="margin-top:0.8em; line-height:2px;" ><%= bill.created %></p>
+    <!--<li class="il" id="asd"><span class="right">Date: <%= bill.created %> </span></li>-->
+
+         
+          <!--<p class = "text-left billp" style=" display: inline;">Waiter Name : <%= bill.waitername %>    </p>-->
+          <!--<p class = "text-right billp" style="text-indent: 50px; display: inline;" >   Order No. : <%= bill.ordernumber %>    </p>-->
+         
+        
     
          
          
@@ -113,7 +128,7 @@
   <thead>
     <tr>
       
-      <th scope="col">Name</th>
+      <th scope="col">Item Name</th>
       <th scope="col">Qty.</th>
       
       <th scope="col">Price</th>
@@ -132,12 +147,20 @@
     
   </tbody>
 </table>
-        <p style="display:inline ">Total:</p><span>   </span><p style="display:inline" id="total_forces"></p>            
-    <hr>
+
+    <li class="il"> <span class="right">Total: ₹ <p style="display:inline" id="total_forces"></p></span></li>
+
+        <!--<p style="display:inline ">Total:</p><span>   </span><p style="display:inline" id="total_forces"></p>            -->
     
-     <button id="printbill">Print Bill</button>
+    
+       <hr><br><hr><p class="text-center">SCAN THIS QR CODE ⇊ LIKE US ON FACEBOOK</p><img id="fb" src="https://lh3.googleusercontent.com/wGpOYLQ-QVqsgV5cznD_QwUQt9nfe7_qFKZDDVaQoBPzKTLxyNt0d0hH0sCUkyCnQK7pNgZik52wlnl4bFLu4boiFJ015JrnOBmh9Ds2UzTE9TZ3l9E9ATfxiSe-uZ2QJR83PnzukSuppe58SWAFAFEcu7qEyzrIZbxiKeCgR8oNqAgnAOICAyE7EXw6SRRCyHoRs2trR0B9lwg09IkYtfSSKlEkiAuFVyeM938_dXgJ8lb1X9QA1zzecyi5VrxxaCI_rtQZFfwMnXZuCNKsfkh-JgEQbVaxTrFgyBSqbZq87MN7wODA8_6ifpKNlhblrN4PltG_wHDORLbCRWTO-hUPlfmMoiY0ct_MTLveGHdaBU2gaqzKP9viBbwQaBfI22WlBwhxPst4ZOAd9uEjMmufk4NHyxTiD4DVEk8wR2xAtbQA8xy4Bfl7ckTJdIrv6tOu65hCZHNT79cmfcFXjEfprU3a0Jv6z0FWRwR3XOtrdDdTOuqC7Rr6yEAVNAnPWnOiyrC4usQXVDhr51uvrKJomLzbCOp5ewNA995zKyl0-lztJY23WiLQo_RJlvnTNe0nnYPteB_oacc_b4nWRMdPo8aYzO8Hp9RD6Hn0FWao2XlITR1qPLVY95iNo9DlnVO3qBYSf7KU0y1kOCiGamxnjaDVypz8jg=s328-no" class="img-thumbnail">
+      <!--https://photos.google.com/share/AF1QipOfX0Q45p09vNr4zcpciNxzthegIYQMigvf8Kmi3mJ3GlK_qHuQ7JlGi1ROU5kh0A/photo/AF1QipO-7vEN9q_2AnEciij8Z5Uy_XJUjq9iQh68_7sC?key=WUJmLUJSXzZhbWhaU2MzUUtXQklKbElMdTJlUXV3-->
+ <p class = "text-center" >Come again another day</p><hr>
   </div>
-  
+
+
+  <button id="printbill" type="button" class="btn btn-success">Print Bill</button>
+  </div>
  </div>
  
 

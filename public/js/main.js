@@ -1,4 +1,8 @@
-alert("hi")
+$('document').ready(function() {
+    alert("Hi! The system is ready.")
+})
+
+
 
 var kot = []
  

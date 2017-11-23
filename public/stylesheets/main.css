@@ -40,12 +40,48 @@ body{
     font-size: 1.5em;
   }
   
-  h1{
-      color:green;
-  }
+
   #content{
         padding-top:5%;
     }
     .card{
         padding:2%;
     }
+    
+     .billp{
+         font-family: 'Comfortaa', cursive;
+         line-height: 20%;
+     }
+     
+/*     ul #bri {*/
+/*    width: 100px;*/
+    
+/*}*/
+.right {
+    float: right;
+    font-family: 'Comfortaa', cursive;
+    
+}
+.il{
+   list-style: none; 
+   font-family: 'Comfortaa', cursive;
+}
+#billtable{
+    margin-top: 20px;
+    font-family: 'Comfortaa', cursive;
+}
+
+#billtablemargin{
+    margin-bottom: 0px;
+}
+
+#space{
+    line-height: 20px;
+}
+
+#fb{
+    display: block;
+    margin: auto;
+    width:120px;
+    height:120px;
+}

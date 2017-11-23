@@ -8,6 +8,7 @@ var  path = require('path');
 var port = process.env.PORT || 3000;
 
 var posRoutes=require("./routes/posRoutes")
+
 // var billRoutes=require("./routes/billRoutes")
 app.use('/', posRoutes);
 // app.use('/bill', billRoutes)
@@ -45,6 +46,7 @@ var billSchema = new mongoose.Schema({
     ordernumber:{ type: Number, required: true },
     tablenumber: { type: String, required: true },
     waitername: { type: String, required: true },
+    created: {type: Date, default: Date.now},
     meals: [
         {type: mongoose.Schema.Types.ObjectId,
             ref: "Meal"
