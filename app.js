@@ -7,10 +7,10 @@ var ObjectId = require('mongodb').ObjectId;
 var  path = require('path');
 var port = process.env.PORT || 3000;
 
-var posRoutes=require("./routes/posRoutes")
+// var posRoutes=require("./routes/posRoutes")
 
 // var billRoutes=require("./routes/billRoutes")
-app.use('/', posRoutes);
+// app.use('/', posRoutes);
 // app.use('/bill', billRoutes)
 
 
@@ -38,12 +38,15 @@ var mealSchema = new mongoose.Schema({
 var Meal = mongoose.model("Meal", mealSchema);
 
 
-  
+
+
+
     
-   
+
+
     
 var billSchema = new mongoose.Schema({
-    ordernumber:{ type: Number, required: true },
+    bn:Number,
     tablenumber: { type: String, required: true },
     waitername: { type: String, required: true },
     created: {type: Date, default: Date.now},
@@ -58,8 +61,9 @@ var Bill = mongoose.model("Bill", billSchema);
     
 
 // Bill.create({
-//     billnumber:"A012",
-//     waitername: "Jhat"
+//     bn:3,
+//     waitername: "Sat", 
+//     tablenumber:"4"
 // }, function(err, bill) {
 //     if(err){
 //         console.log(err)
@@ -70,6 +74,58 @@ var Bill = mongoose.model("Bill", billSchema);
     
 // })
 
+
+
+
+//   var newBill = new Bill({
+//      bn:3,
+//      waitername: "Dog"
+//  });
+ 
+// //  newBill.numbs.push({
+// //      ordernumber:4
+// //  })
+//   newBill.save(function(err, bill){
+//     if(err){
+//         console.log(err)
+//     } console.log(bill)
+// }) 
+
+
+
+
+
+
+
+ 
+app.get("/",function(req, res){
+    
+Bill.count(function(err, count){
+    if(err){
+        console.log(err)
+    }
+  console.log("Total matches: "+count);
+
+
+    
+//  Bill.findOne({ "$query":{}, "$orderby":{ "bn": -1 }}, function(err, bill){
+//      if(err){
+//          console.log(err)
+//      }console.log(bill) 
+//      var x=bill.bn
+//     var nx=bill.bn+1
+//      console.log("This: " + x)
+//      console.log("Next: " + nx)
+         
+         
+         
+         
+         
+//      })
+
+            res.render("landing")
+            ;});
+         });
 
 // Meal.create({
 //             mealname:"paratha",
@@ -183,16 +239,25 @@ var Bill = mongoose.model("Bill", billSchema);
    
                 app.post("/", function(req, res){
         
-                        var ordernumber = req.body.ordernumber;
+        
+        Bill.count(function(err, count){
+            if(err){
+                console.log(err)
+            }
+          console.log("Total matches: "+count);
+        
+                
+        
+                        var bn = count+1;
                         var tablenumber = req.body.tablenumber;
                         var waitername = req.body.waitername;
        
-      
-        var newBill = new Bill({ordernumber:ordernumber, tablenumber:tablenumber, waitername: waitername})
+      console.log("New Match : " +bn)
+        var newBill = new Bill({bn:bn, tablenumber:tablenumber, waitername: waitername})
         
         
-            Bill.find().count(function(err, count){
-                console.log("Number of docs: ", count );
+            // Bill.find().count(function(err, count){
+            //     console.log("Number of docs: ", count );
             
     
         // meals.push(newMeal);
@@ -215,12 +280,12 @@ var Bill = mongoose.model("Bill", billSchema);
              
             
         });});
-       
+                });
     
         
         
         
-      });
+   
         
         // ======================================
         

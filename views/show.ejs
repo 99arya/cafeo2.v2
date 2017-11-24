@@ -20,7 +20,7 @@
      <div class="col-2">
      <div id = "kotdiv">
          <h3 class="text-center">KOT</h3>
-         <p class="text-center">Bill Number : <%= bill.ordernumber %></p>
+         <p class="text-center">Bill Number : <%= bill.bn %></p>
          <hr>
                <table id="kottable" class="table table-sm table-bordered ">
   <thead>
@@ -58,10 +58,10 @@
 <form action="/bills/<%= bill._id%>/meals" method="POST">
              
 <ul class="list-group">
-  <li class="list-group-item active">Order Number : <b><%= bill.ordernumber %> </b></li>
+  <li class="list-group-item active">Order Number : <b><%= bill.bn %> </b></li>
   <li class="list-group-item">Table Number : <b><%= bill.tablenumber %></b></li>
   <li class="list-group-item">Waiter Name : <b><%= bill.waitername %></b></li>
-</ul><br><h4 style="text-align: center; " >Add a New Meal to Order Number <%= bill.ordernumber %></h4><br>
+</ul><br><h4 style="text-align: center; " >Add a New Meal to Order Number <%= bill.bn %></h4><br>
             <div class="form-group">
                 <input class="form-control" type="text" name="meal[mealname]" placeholder="Name of The Meal">
             </div>
@@ -116,7 +116,7 @@
           <p class = "text-center billp" >PH. 9891471187, 8447343632</p>
           <hr id="billtablemargin">
           
-    <li class="il">Waiter Name : <%= bill.waitername %><span class="right"> Order No. : <%= bill.ordernumber %></span></li>
+    <li class="il">Waiter Name : <%= bill.waitername %><span class="right"> Order No. : <%= bill.bn %></span></li>
    
    <p class="il" id="dates" style="margin-top:0.8em; line-height:2px;" ><%= bill.created %></p>
     <!--<li class="il" id="asd"><span class="right">Date: <%= bill.created %> </span></li>-->

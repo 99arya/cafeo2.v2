@@ -1,5 +1,5 @@
 $('document').ready(function() {
-    alert("Hi! The system is ready.")
+    alert("The system is ready.")
 })
 
 
@@ -60,8 +60,10 @@ var result = [];
             $("#printbill").on("click", function () {//$btnPrint is button which will trigger print
                 var divContents = $("#billdiv").html();//div which have to print
                 var printWindow = window.open('', '', 'height=700,width=900');
-                printWindow.document.write('<html><head><title></title>');
+                printWindow.document.write('<html><head><title>BILL</title>');
                 printWindow.document.write('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" >');//external styles
+                printWindow.document.write('<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">');//external styles
+                printWindow.document.write('<style>font-family: "Share Tech Mono", monospace;</style>');//external styles
                 printWindow.document.write('<link rel="stylesheet" href="/stylesheets/main.css" type="text/css"/>');
                 printWindow.document.write('</head><body>');
                 
@@ -114,3 +116,5 @@ $('#delkot').on('click',function(e){
          e.preventDefault();
         $("#kottable tr").remove();
       });
+      
+          
