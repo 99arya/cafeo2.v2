@@ -3,9 +3,9 @@
 
 
 <body>
-    <h1>Meals</h1>
+    
     <div id="content">
-    <a href="/meals/new">Add a new Meal</a>
+  
     
   
      <div class='container fluid'>
@@ -35,34 +35,9 @@
     <style>
         .meal-card{
             padding:1.5%;
-            
+            display:flex;
         }
     </style>
     
 
-<script> 
-
-var Bill = []
-
-
-                            
-    $('.add').on('click', function() {
-        
-        console.log($(this).data('price'))
-        var oid = $(this).data('price');
-        alert(oid + "     has been added to the bill")
-        // alert( $('div[data-name="name"]') + "worth" + $(this).data('price') + "added to bill");
-        
-            Bill.push(oid)
-            console.log(Bill)
-            
-    });
-    
- 
-
-</script>
-
-<p></p>
-  
-<a href="/">Home</a>
 <% include ./partials/footer %>
