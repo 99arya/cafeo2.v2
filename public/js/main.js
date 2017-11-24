@@ -54,26 +54,7 @@ var result = [];
  
 });
 
-    // $('#printbill').on("click", function(){
-    //       $('#billtable').show().printElement();
-    // })
- 
-//   function printDiv() 
-// {
 
-//   var divToPrint=document.getElementById('printbill');
-
-//   var newWin=window.open('','Print-Window');
-
-//   newWin.document.open();
-
-//   newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
-
-//   newWin.document.close();
-
-//   setTimeout(function(){newWin.close();},10);
-
-// } 
   
   $(document).ready(function() {
             $("#printbill").on("click", function () {//$btnPrint is button which will trigger print
@@ -94,20 +75,42 @@ var result = [];
                 printWindow.close();
                 }
             });
+}); 
+
+
+  $(document).ready(function() {
+            $("#printkot").on("click", function () {//$btnPrint is button which will trigger print
+                var divContents = $("#kotdiv").html();//div which have to print
+                var printWindow = window.open('', '', 'height=700,width=900');
+                printWindow.document.write('<html><head><title></title>');
+                printWindow.document.write('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" >');//external styles
+                printWindow.document.write('<link rel="stylesheet" href="/stylesheets/main.css" type="text/css"/>');
+                printWindow.document.write('</head><body>');
+                
+                printWindow.document.write(divContents);
+                printWindow.document.write('</body></html>');
+                printWindow.document.close();
+
+                printWindow.onload=function(){
+                printWindow.focus();                                         
+                printWindow.print();
+                printWindow.close();
+                }
+            });
 });
 
-// $(document).ready(function(){
-// var result = [];
-//   $('table tr').each(function(){
-//   	$('td', this).each(function(index, val){
-//     	if(!result[index]) result[index] = 0;
-//       result[index] += parseInt($(val).text());
-//     });
-//   });
-  
-//   $('table').append('<tr></tr>');
-//   $(result).each(function(){
-//   	$('table tr').last().append('<td>'+this+'</td>')
-//   });
-// });
 
+
+function download(){
+    var a = document.body.appendChild(
+        document.createElement("a")
+    );
+    a.download = "export.html";
+    a.href = "data:text/html," + document.getElementById("billdiv").innerHTML;
+    a.click();
+}
+
+$('#delkot').on('click',function(e){
+         e.preventDefault();
+        $("#kottable tr").remove();
+      });

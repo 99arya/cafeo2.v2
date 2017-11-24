@@ -17,8 +17,8 @@
      <div class="row">
    
    
-     
-     <div id = "kotdiv" class="col-2">
+     <div class="col-2">
+     <div id = "kotdiv">
          <h3 class="text-center">KOT</h3>
          <p class="text-center">Bill Number : <%= bill.ordernumber %></p>
          <hr>
@@ -43,14 +43,18 @@
     <% }); %>  
   </tbody>
 </table>
+    </div><br>
+    <div class="form-group">
+    <button style="margin-left:auto;margin-right:auto;display:block;margin-top:0%;margin-bottom:0%"  id="printkot" type="button" class="btn btn-success">Print KOT</button></div>
+   <div class="form-group"> <button style="margin-left:auto;margin-right:auto;display:block;margin-top:0%;margin-bottom:0%"  id="delkot" type="button" class="btn btn-danger">Delete KOT</button></div>
+    
     </div>
     
-    
-    
-    <div class="col-6">
-      <!--========================================================================================-->
+   
+<!--========================================================================================-->
 <!--SHOW MEALS-->
 <!--========================================================================================-->
+ <div class="col-6">
 <form action="/bills/<%= bill._id%>/meals" method="POST">
              
 <ul class="list-group">
@@ -67,7 +71,7 @@
             </div>
             
             <div class="form-group">
-            <button class="btn btn-lg btn-primary btn-block" >Submit</button>
+            <button class="btn btn-lg btn-success btn-block" >Submit</button>
             </div> 
         </form>
         
@@ -101,6 +105,7 @@
  <!--SHOW ITEMS IN BILL-->
  <!--========================================================================================-->
          <div class="col-4">
+            
     <div id ="billdiv" >
         <hr>
          <p class = "text-center billp" ><b>CAFE - O2</b></p>
@@ -113,7 +118,7 @@
           
     <li class="il">Waiter Name : <%= bill.waitername %><span class="right"> Order No. : <%= bill.ordernumber %></span></li>
    
-   <p class="il" style="margin-top:0.8em; line-height:2px;" ><%= bill.created %></p>
+   <p class="il" id="dates" style="margin-top:0.8em; line-height:2px;" ><%= bill.created %></p>
     <!--<li class="il" id="asd"><span class="right">Date: <%= bill.created %> </span></li>-->
 
          
@@ -156,9 +161,14 @@
       <!--https://photos.google.com/share/AF1QipOfX0Q45p09vNr4zcpciNxzthegIYQMigvf8Kmi3mJ3GlK_qHuQ7JlGi1ROU5kh0A/photo/AF1QipO-7vEN9q_2AnEciij8Z5Uy_XJUjq9iQh68_7sC?key=WUJmLUJSXzZhbWhaU2MzUUtXQklKbElMdTJlUXV3-->
  <p class = "text-center" >Come again another day</p><hr>
   </div>
+<br>
+ <div class="form-group">
+  <button style="margin-left:auto;margin-right:auto;display:block;margin-top:0%;margin-bottom:0%"  id="printbill" type="button" class="btn btn-success">Print Bill</button></div>
+   <div class="form-group">
+  <!--<button onClick="download()">Download</button>-->
+  <button style="margin-left:auto;margin-right:auto;display:block;margin-top:0%;margin-bottom:0%" onClick="download()" type="button" class="btn btn-info">Download PDF</button></div>
 
-
-  <button id="printbill" type="button" class="btn btn-success">Print Bill</button>
+  
   </div>
  </div>
  

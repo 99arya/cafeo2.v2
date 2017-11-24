@@ -4,6 +4,7 @@
 
 body{
     padding-bottom: 3%;
+    background-color: #d3e1ff;
 }
 
 #content{
@@ -35,6 +36,7 @@ body{
 
 #ftr{
      color:white;
+    
 }
  .navbar-brand{
     font-size: 1.5em;
@@ -85,9 +87,9 @@ body{
 .card:hover {
     background-color: #7bfc7f;
    
-    -webkit-transition:transform background-color 300ms linear;
-    -ms-transition:transform background-color 300ms linear;
-    transition:transform background-color 300ms linear; 
+    -webkit-transition:transform background-color 500ms linear;
+    -ms-transition:transform background-color 500ms linear;
+    transition:transform background-color 500ms linear; 
 }
 
 .ilb{
@@ -97,4 +99,21 @@ body{
 }
 #total_gross{
     font-weight: bold;
+}
+
+#billdiv{
+    background-color: #f9fbff;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+
+
+#dates{
+    font-size: 12px;
+}
+#kotdiv{
+    background-color: #f9fbff;
+    padding: 10px;
+    border-radius: 25px;
 }
