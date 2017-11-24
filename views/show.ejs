@@ -103,7 +103,7 @@
          <div class="col-4">
     <div id ="billdiv" >
         <hr>
-         <p class = "text-center billp" >CAFE - O2</p>
+         <p class = "text-center billp" ><b>CAFE - O2</b></p>
          <p class = "text-center billp" >PLOT 147, NEAR RAHEJA ATLANTIS</p>
         
          <p class = "text-center billp" >SECTOR-31, GURGAON</p>
@@ -119,11 +119,7 @@
          
           <!--<p class = "text-left billp" style=" display: inline;">Waiter Name : <%= bill.waitername %>    </p>-->
           <!--<p class = "text-right billp" style="text-indent: 50px; display: inline;" >   Order No. : <%= bill.ordernumber %>    </p>-->
-         
         
-    
-         
-         
          <table id="billtable" class="table table-sm table-bordered ">
   <thead>
     <tr>
@@ -138,8 +134,8 @@
      <% bill.meals.forEach(function(meal){ %> 
     <tr>
       
-      <td><%= meal.mealname %></td>
-      <th scope="row">1</th>
+      <td name="foodqty"><%= meal.mealname %></td>
+      <th name="qty" scope="row">1</th>
       
       <td class="money"><%= meal.mealprice %></td>
     </tr>
@@ -148,12 +144,15 @@
   </tbody>
 </table>
 
-    <li class="il"> <span class="right">Total: ₹ <p style="display:inline" id="total_forces"></p></span></li>
+    <li class="il"> Sub Total: <span class="right">₹ <p style="display:inline" id="total_forces"></p></span></li>
+    <li class="il"> C GST @ 2.5% : <span class="right"> ₹ <p style="display:inline" id="cgst"></p></span></li>
+    <li class="il"> S GST @ 2.5% : <span class="right"> ₹ <p style="display:inline" id="sgst"></p></span></li>
+   <hr> <li class="ilb"><b>Gross Amount: </b> <span class="right">₹ <p style="display:inline" id="total_gross"></p></span></li>
 
         <!--<p style="display:inline ">Total:</p><span>   </span><p style="display:inline" id="total_forces"></p>            -->
     
     
-       <hr><br><hr><p class="text-center">SCAN THIS QR CODE ⇊ LIKE US ON FACEBOOK</p><img id="fb" src="https://lh3.googleusercontent.com/wGpOYLQ-QVqsgV5cznD_QwUQt9nfe7_qFKZDDVaQoBPzKTLxyNt0d0hH0sCUkyCnQK7pNgZik52wlnl4bFLu4boiFJ015JrnOBmh9Ds2UzTE9TZ3l9E9ATfxiSe-uZ2QJR83PnzukSuppe58SWAFAFEcu7qEyzrIZbxiKeCgR8oNqAgnAOICAyE7EXw6SRRCyHoRs2trR0B9lwg09IkYtfSSKlEkiAuFVyeM938_dXgJ8lb1X9QA1zzecyi5VrxxaCI_rtQZFfwMnXZuCNKsfkh-JgEQbVaxTrFgyBSqbZq87MN7wODA8_6ifpKNlhblrN4PltG_wHDORLbCRWTO-hUPlfmMoiY0ct_MTLveGHdaBU2gaqzKP9viBbwQaBfI22WlBwhxPst4ZOAd9uEjMmufk4NHyxTiD4DVEk8wR2xAtbQA8xy4Bfl7ckTJdIrv6tOu65hCZHNT79cmfcFXjEfprU3a0Jv6z0FWRwR3XOtrdDdTOuqC7Rr6yEAVNAnPWnOiyrC4usQXVDhr51uvrKJomLzbCOp5ewNA995zKyl0-lztJY23WiLQo_RJlvnTNe0nnYPteB_oacc_b4nWRMdPo8aYzO8Hp9RD6Hn0FWao2XlITR1qPLVY95iNo9DlnVO3qBYSf7KU0y1kOCiGamxnjaDVypz8jg=s328-no" class="img-thumbnail">
+       <br><hr><p class="text-center">SCAN THIS QR CODE ⇊ LIKE US ON FACEBOOK</p><img id="fb" src="https://lh3.googleusercontent.com/wGpOYLQ-QVqsgV5cznD_QwUQt9nfe7_qFKZDDVaQoBPzKTLxyNt0d0hH0sCUkyCnQK7pNgZik52wlnl4bFLu4boiFJ015JrnOBmh9Ds2UzTE9TZ3l9E9ATfxiSe-uZ2QJR83PnzukSuppe58SWAFAFEcu7qEyzrIZbxiKeCgR8oNqAgnAOICAyE7EXw6SRRCyHoRs2trR0B9lwg09IkYtfSSKlEkiAuFVyeM938_dXgJ8lb1X9QA1zzecyi5VrxxaCI_rtQZFfwMnXZuCNKsfkh-JgEQbVaxTrFgyBSqbZq87MN7wODA8_6ifpKNlhblrN4PltG_wHDORLbCRWTO-hUPlfmMoiY0ct_MTLveGHdaBU2gaqzKP9viBbwQaBfI22WlBwhxPst4ZOAd9uEjMmufk4NHyxTiD4DVEk8wR2xAtbQA8xy4Bfl7ckTJdIrv6tOu65hCZHNT79cmfcFXjEfprU3a0Jv6z0FWRwR3XOtrdDdTOuqC7Rr6yEAVNAnPWnOiyrC4usQXVDhr51uvrKJomLzbCOp5ewNA995zKyl0-lztJY23WiLQo_RJlvnTNe0nnYPteB_oacc_b4nWRMdPo8aYzO8Hp9RD6Hn0FWao2XlITR1qPLVY95iNo9DlnVO3qBYSf7KU0y1kOCiGamxnjaDVypz8jg=s328-no" class="img-thumbnail">
       <!--https://photos.google.com/share/AF1QipOfX0Q45p09vNr4zcpciNxzthegIYQMigvf8Kmi3mJ3GlK_qHuQ7JlGi1ROU5kh0A/photo/AF1QipO-7vEN9q_2AnEciij8Z5Uy_XJUjq9iQh68_7sC?key=WUJmLUJSXzZhbWhaU2MzUUtXQklKbElMdTJlUXV3-->
  <p class = "text-center" >Come again another day</p><hr>
   </div>

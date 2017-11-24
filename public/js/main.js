@@ -13,7 +13,13 @@ $(".card").on("click", function(){
  var mealname=$(this).data("mealname-value");
  var mealprice=$(this).data("mealprice-value");
  
+  var pregst = mealprice - 0.05*mealprice;
+ console.log("pregst: " + pregst)
+ 
+ 
+ 
  console.log(mealid)
+
 $('#billtable').append('<tr><td>' + mealname + '</td><th scope="row">1</th><td>' + mealprice + '</td></tr>');
 $('#kottable').append('<tr><td>' + mealname + '</td><th scope="row">1</th></tr>');
 //  alert(kot)
@@ -30,7 +36,19 @@ var result = [];
   
   $('table').append('<tr></tr>');
   $(result).each(function(){
-  	$('#total_forces').html(this)
+  	$('#total_forces').html(this.toFixed(2))
+ 
+  var cgst=this*0.025;
+     	$('#cgst').html(cgst.toFixed(2))
+
+  var sgst=this*0.025;
+     	$('#sgst').html(sgst.toFixed(2))
+
+  
+ var pregsttotal = (this + 0.05*this).toFixed(2);
+ console.log("pregsttotal: " + pregsttotal)
+   	$('#total_gross').html(pregsttotal)
+
   });
  
  
@@ -92,3 +110,4 @@ var result = [];
 //   	$('table tr').last().append('<td>'+this+'</td>')
 //   });
 // });
+

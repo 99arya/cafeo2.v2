@@ -115,6 +115,9 @@ var Bill = mongoose.model("Bill", billSchema);
     //                     console.log(Meal)
     //                 }
     //             });
+    
+
+    
     // ==========================================================================================
                         // var meals=  [
                                     
@@ -187,6 +190,11 @@ var Bill = mongoose.model("Bill", billSchema);
       
         var newBill = new Bill({ordernumber:ordernumber, tablenumber:tablenumber, waitername: waitername})
         
+        
+            Bill.find().count(function(err, count){
+                console.log("Number of docs: ", count );
+            
+    
         // meals.push(newMeal);
         
          Bill.create(newBill, function(err, bill){
@@ -206,7 +214,7 @@ var Bill = mongoose.model("Bill", billSchema);
             
              
             
-        });
+        });});
        
     
         

@@ -49,7 +49,6 @@ body{
     }
     
      .billp{
-         font-family: 'Comfortaa', cursive;
          line-height: 20%;
      }
      
@@ -59,16 +58,13 @@ body{
 /*}*/
 .right {
     float: right;
-    font-family: 'Comfortaa', cursive;
-    
+
 }
 .il{
    list-style: none; 
-   font-family: 'Comfortaa', cursive;
 }
 #billtable{
     margin-top: 20px;
-    font-family: 'Comfortaa', cursive;
 }
 
 #billtablemargin{
@@ -94,3 +90,11 @@ body{
     transition:transform background-color 300ms linear; 
 }
 
+.ilb{
+    list-style: none;
+    font-size: 1.3em;
+    line-height: 0px;
+}
+#total_gross{
+    font-weight: bold;
+}
